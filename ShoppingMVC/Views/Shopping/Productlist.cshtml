@@ -1,0 +1,17 @@
+﻿@*<select>
+    @foreach(var item in ViewBag.list)
+    {
+        <li>@item</li>
+    }
+</select>*@
+
+@*<select>
+    @foreach(var item in ViewBag.list)
+    {
+        <option>@item</option>
+    }
+</select>*@
+@foreach(var ITEM in  ViewBag.list)
+{
+   @ITEM <input type="checkbox">
+}
