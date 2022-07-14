@@ -1,0 +1,20 @@
+﻿<h1>Add Product</h1>
+
+<form method="post"> 
+    <input type="number" class="form-control" name="newProd.Pid" />
+    <input type="text" class="form-control" name="newProd.PName" />
+    <input type="number" class="form-control" name="newProd.Price" />
+    <select>
+        <option>Col-Drink</option>
+        <option>Electronic</option>
+        <option>Food</option>
+    </select>
+    <input type="text" class="form-control" name="newProd.PISinStock" />
+    <button class="btn btn-primary">Add Product</button>
+</form>
+<div>
+    @if (ViewBag.message != null)
+    {
+       <h1>@ViewBag.message</h1> 
+    }
+</div>

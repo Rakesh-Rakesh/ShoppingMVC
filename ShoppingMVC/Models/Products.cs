@@ -15,7 +15,7 @@
         new Products(){Pid=102,PName="Pespi",Category = "Drink",PISinStock=true,Price=40},
         new Products(){Pid=103,PName="pizza",Category="Food",PISinStock=true,Price=50},
         new Products(){Pid=104,PName="SandWitch",Category = "Food" ,PISinStock=true,Price=40 },
-        new Products(){Pid=105,PName="Thumbsup",Category="Drink",PISinStock=true,Price=30}
+        new Products(){Pid=105,PName="Thumbsup",Category="Drink",PISinStock=false,Price=30}
     };
      
        public  List<Products> GetAllProducts()
@@ -44,11 +44,19 @@
         }
         public string DeleteProducts(int id)
         {
-            var p = (from pr in pList
-                     where pr.Pid == id
-                     select pr).Single();
-            pList.Remove(p);
-            return "product deleted succesfuly";
+            //var p = (from pr in pList
+            //         where pr.Pid == id
+            //         select pr).Single();
+
+            var p = pList.Find(pr=> pr.Pid == id);
+            if (p!= null)
+            {
+                pList.Remove(p);
+                return "product deleted succesfuly";
+            }
+            throw  new Exception("data not found");
+            
         }
+        
     }
 }
